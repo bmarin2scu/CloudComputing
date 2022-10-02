@@ -14,9 +14,9 @@ USER root
 RUN pip3 install jupyter
 ## source: https://towardsdatascience.com/how-to-run-jupyter-notebook-on-docker-7c9748ed209f
 
-RUN wget https://raw.githubusercontent.com/bmarin2scu/CloudComputing/main/week_2/notebook1.ipynb
+RUN wget https://raw.githubusercontent.com/bmarin2scu/CloudComputing/main/week_2/notebook1.ipynb notebook1.ipynb
 #source: https://learnpython.com/blog/python-requirements-file/
-RUN wget https://raw.githubusercontent.com/bmarin2scu/CloudComputing/main/week_2/requirements.txt
+RUN wget https://raw.githubusercontent.com/bmarin2scu/CloudComputing/main/week_2/requirements.txt requirements.txt
 
 #2 ways to create user
 ## RUN useradd -ms /bin/bash our_user
