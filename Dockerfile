@@ -25,12 +25,7 @@ ENV JUPYTER_USER our_user
 
 RUN useradd -ms /bin ${JUPYTER_USER} 
 
-#source: https://linuxhint.com/creating-a-user-with-different-home-directory-in-linux/
-RUN mkdir -p home/our_user/week2lab
-RUN cp requirements.txt home/our_user/week2lab
-RUN cp notebook1.ipynb home/our_user/week2lab
-RUN pip install -r requirements.txt
-WORKDIR /home/our_user/week2lab
+
 
 #expose port 
 EXPOSE 7777
@@ -42,3 +37,9 @@ CMD jupyter notebook --ip=0.0.0.0 --port 7777
 
 #https://learnpython.com/blog/python-requirements-file/
 
+#source: https://linuxhint.com/creating-a-user-with-different-home-directory-in-linux/
+RUN mkdir -p home/our_user/week2lab
+RUN cp requirements.txt home/our_user/week2lab
+RUN cp notebook1.ipynb home/our_user/week2lab
+RUN pip install -r requirements.txt
+WORKDIR /home/our_user/week2lab
