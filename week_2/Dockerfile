@@ -29,6 +29,8 @@ RUN useradd -ms /bin ${JUPYTER_USER}
 RUN mkdir -p home/our_user/week2lab
 RUN cp requirements.txt home/our_user/week2lab
 RUN cp notebook1.ipynb home/our_user/week2lab
+RUN pip install -r requirements.txt
+WORKDIR /home/our_user/week2lab
 
 #expose port 
 EXPOSE 7777
