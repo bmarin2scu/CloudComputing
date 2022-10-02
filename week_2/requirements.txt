@@ -1,0 +1,4 @@
+Pip install nltk
+Import nltk
+nltk.download('book')
+From nltk.book import *

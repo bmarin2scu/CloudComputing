@@ -15,6 +15,7 @@ RUN pip3 install jupyter
 ## source: https://towardsdatascience.com/how-to-run-jupyter-notebook-on-docker-7c9748ed209f
 
 RUN wget https://raw.githubusercontent.com/bmarin2scu/CloudComputing/main/week_2/NLP_HW2.ipynb
+RUN wget 
 
 #2 ways to create user
 ## RUN useradd -ms /bin/bash our_user
@@ -25,7 +26,8 @@ RUN useradd -ms /bin ${JUPYTER_USER}
 
 #source: https://linuxhint.com/creating-a-user-with-different-home-directory-in-linux/
 RUN mkdir -p home/our_user/week2lab
-RUN cp notebook1 home/our_user/week2lab
+RUN cp requirements.txt home/our_user/week2lab
+RUN cp NLP_HW2.ipynb home/our_user/week2lab
 
 #expose port 
 EXPOSE 7777
@@ -34,4 +36,6 @@ EXPOSE 7777
 USER ${JUPYTER_USER}
 
 CMD jupyter notebook --ip=0.0.0.0 --port 7777
+
+#https://learnpython.com/blog/python-requirements-file/
 
