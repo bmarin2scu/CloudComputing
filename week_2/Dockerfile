@@ -12,10 +12,9 @@ USER root
 
 #install jupyter, can also use from terminal
 RUN pip3 install jupyter
-
-# docker run -p 7777:7777 my_jupyter
-
 ## source: https://towardsdatascience.com/how-to-run-jupyter-notebook-on-docker-7c9748ed209f
+
+RUN wget https://raw.githubusercontent.com/bmarin2scu/CloudComputing/main/week_2/NLP_HW2.ipynb
 
 #2 ways to create user
 ## RUN useradd -ms /bin/bash our_user
@@ -26,7 +25,7 @@ RUN useradd -ms /bin ${JUPYTER_USER}
 
 #source: https://linuxhint.com/creating-a-user-with-different-home-directory-in-linux/
 RUN mkdir -p home/our_user/week2lab
-RUN cp https://github.com/bmarin2scu/Data-Analytics-with-Python/blob/main/Final_Project_Group6_FinalVersion.ipynb /home/our_user/week2lab
+RUN cp notebook1 home/our_user/week2lab
 
 #expose port 
 EXPOSE 7777
