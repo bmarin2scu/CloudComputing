@@ -25,10 +25,10 @@ ENV JUPYTER_USER our_user
 
 RUN useradd -ms /bin ${JUPYTER_USER} 
 RUN mkdir -p home/our_user/lab2
-RUN cp requirements.txt home/our_user/lab2
 RUN cp notebook1.ipynb home/our_user/lab2
+RUN cp requirements.txt home/our_user/lab2
 RUN pip install -r requirements.txt
-#WORKDIR /home/our_user/week2lab
+WORKDIR /home/our_user/week2lab
 
 
 #expose port 
