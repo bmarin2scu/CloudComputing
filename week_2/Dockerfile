@@ -13,7 +13,7 @@ USER root
 #install jupyter, can also use from terminal
 RUN pip3 install jupyter
 
-# docker run -p 8888:8888 my_jupyter
+# docker run -p 7777:7777 my_jupyter
 
 ## source: https://towardsdatascience.com/how-to-run-jupyter-notebook-on-docker-7c9748ed209f
 
@@ -22,8 +22,13 @@ RUN pip3 install jupyter
 #ENV USER=name
 ENV JUPYTER_USER our_user
 
-RUN useradd -ms /bin/bash ${JUPYTER_USER}
+RUN useradd -ms bin/bash ${JUPYTER_USER} \
+    && apt-get update \
+    && apt-get install -y sudo \
+    && echo $JUPYTER_USER ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$JUPYTER_USER \
+    && chmod 0440 /etc/sudoers.d/$JUPYTER_USER
 
+RUN mkdir -p home/our_user/week2lab
 #expose port 
 EXPOSE 7777
 
@@ -31,5 +36,4 @@ USER ${JUPYTER_USER}
 #run jupyter notebook on specific port, allow-root should not be used in actual running system 
 
 CMD jupyter notebook --ip=0.0.0.0 --port 7777
-#http://127.0.0.1:8888/?token=2d866587e623dc589fc855659947547f8753535b591ad1e2
 
