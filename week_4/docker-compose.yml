@@ -10,7 +10,7 @@ services:
       - CONSUMER_PORT=${CONSUMER_PORT}
       - CONSUMER_ENDPOINT=${CONSUMER_ENDPOINT}
     ports:
-      - "5000:5000"
+      - "5055:5055"
   consumer:
     build: ./consumer
     hostname: consumer
