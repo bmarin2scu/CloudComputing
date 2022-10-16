@@ -6,6 +6,8 @@ services:
     hostname: api 
     volumes: 
       - ./api/code:/app
+    env_file:
+      - ./.env
     environment:
       - CONSUMER_PORT=${CONSUMER_PORT}
       - CONSUMER_ENDPOINT=${CONSUMER_ENDPOINT}
@@ -16,6 +18,8 @@ services:
     hostname: consumer
     volumes:
       - ./consumer/code:/app
+    env_file:
+      - ./.env
     environment:
       - API_HOST=${API_HOST}
       - API_PORT=${API_PORT}
