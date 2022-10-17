@@ -2,17 +2,19 @@ version: '3.9'
 
 services:
   api:
-    build: ./api/code
+    build: ./api
     hostname: api 
     volumes: 
       - ./api/code:/app
+    env_file:
+      - ./.env
     environment:
       - CONSUMER_PORT=${CONSUMER_PORT}
       - CONSUMER_ENDPOINT=${CONSUMER_ENDPOINT}
     ports:
       - "5000:5000"
   consumer:
-    build: ./consumer/code
+    build: ./consumer
     hostname: consumer
     volumes:
       - ./consumer/code:/app
